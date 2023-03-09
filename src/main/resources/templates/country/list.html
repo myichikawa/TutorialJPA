@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tutorial of JPA</title>
+</head>
+<body>
+    <h1>Country一覧</h1>
+    <table>
+        <tr>
+            <th>コード</th>
+            <th>国名</th>
+            <th>人口</th>
+        </tr>
+        <!--/*th:each属性の属性値はdataが「現在値を格納する変数」で、${countrylist}が「繰り返し対象の配列値」*/-->
+        <!--/*${countrylist}に格納されている、中の値を順番に取り出して変数dataに代入。th:text属性でdataオブジェクトのプロパティの値を出力*/-->
+        <!--/*配列値${countrylist}の値が最後になるまでth:each属性が記載されている<tr>タグに囲まれたHTML要素（<tr>タグ自身も含めて）が繰り返し出力*/-->
+        <tr th:each="data : ${countrylist}">
+            <td th:text="${data.code}"></td>
+            <td th:text="${data.name}"></td>
+            <td th:text="${data.population}"></td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
